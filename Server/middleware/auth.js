@@ -25,7 +25,7 @@ exports.protect=(req,res,next)=>{
 //Check Roles
 exports.authorize=(roles)=>{
     return (req,res,next)=>{//returns a middleware function
-        if (!roles.includes(req.user.role)) return res.status(403).json({message:"For diff Role"});// checks if the user’s role (saved in req.user.role by the protect middleware from earlier)
+        if (!roles.includes(req.user.role)) return res.status(403).json({message:"Forbidden"});// checks if the user’s role (saved in req.user.role by the protect middleware from earlier)
         //  is included in the allowed roles.
         next();//passes control to the next step if everything is okay
     };
